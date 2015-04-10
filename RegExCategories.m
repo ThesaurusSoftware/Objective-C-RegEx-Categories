@@ -81,7 +81,7 @@
       (matchingRanges.count == 0 ? str.length : [matchingRanges[0] rangeValue].location))]];
     
     //add between splits ranges and last range
-    for(int i=0; i<matchingRanges.count; i++){
+    for(NSUInteger i=0; i<matchingRanges.count; i++){
         BOOL isLast = i+1 == matchingRanges.count;
         unsigned long startLoc = [matchingRanges[i] rangeValue].location + [matchingRanges[i] rangeValue].length;
         unsigned long endLoc = isLast ? str.length : [matchingRanges[i+1] rangeValue].location;
@@ -180,7 +180,7 @@
     //groups
     NSMutableArray* groups = [NSMutableArray array];
     match.groups = groups;
-    for(int i=0; i<result.numberOfRanges; i++){
+    for(NSUInteger i=0; i<result.numberOfRanges; i++){
         RxMatchGroup* group = [[RxMatchGroup alloc] init];
         group.range = [result rangeAtIndex:i];
         group.value = group.range.length ? [original substringWithRange:group.range] : nil;
